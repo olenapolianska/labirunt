@@ -1,6 +1,7 @@
 import pygame
 import Character
 import Enemy
+import Treasure
 
 pygame.init()
 
@@ -12,7 +13,7 @@ fon = pygame.transform.scale(fon, (800,500))
 
 pacman = Character.Character(250, 350, 50, 50, 5, "hero.png")
 cyborg = Enemy.Enemy(280, 380, 50, 50, 5, "cyborg.png", 100, 200, 300, 300)
-
+treasure = Treasure.Treasure(100, 200, 50, 50,  "treasure.png")
 game = True
 
 while game:
@@ -27,7 +28,9 @@ while game:
             pygame.quit()
     pacman.move()
     pacman.render(window)
+    cyborg.move()
     cyborg.render(window)
+    treasure.render(window)
 
     pygame.display.flip()
     fps.tick(60)
